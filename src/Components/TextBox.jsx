@@ -5,7 +5,7 @@ import Word from './Word';
 const TextBox = ( ) => {
 
     const { words } = useContext(typingContext)
-    const { counterWords, counterCorrect, counterIncorrect, counterKeyPress, setCurrentWord } = useContext(countersContext)
+    const { counterWords, setCurrentWord } = useContext(countersContext)
   
     useEffect(()=>{
         if(counterWords.counter > 0){
@@ -14,8 +14,6 @@ const TextBox = ( ) => {
             setCurrentWord(words[counterWords.counter].word)
         }
         document.getElementById(words[counterWords.counter].id).classList.add("current")
-        console.log(counterKeyPress.counter)
-  
     }, [counterWords.counter, words, setCurrentWord])
 
   return(
