@@ -16,16 +16,19 @@ export const wordsReducer = (state, action) => {
                 const allCharactersToArray = [...allCharacters];
                 const shuffleCharacters = []
                 let word;
+                let num;
 
                 for (let index = 0; index < 40; index++) {
                     shuffleCharacters.push(allCharactersToArray[Math.floor(Math.random() * ((allCharactersToArray.length - 1) + 1) + 0)])
                 }
 
                 if(action.payload ==='Spanish'){
-                     word = eswords[Math.floor(Math.random() * ((enwords.length - 1) + 1) +1 )]             
+                     num = Math.floor(Math.random() * ((eswords.length - 1) + 1) +1 )
+                     word = eswords[num - 1]            
                 }
                 if(action.payload === 'English'){
-                    word = enwords[Math.floor(Math.random() * ((enwords.length - 1) + 1) +1 )]
+                    num = Math.floor(Math.random() * ((enwords.length - 1) + 1) +1 )
+                    word = enwords[num - 1]  
                 }
 
                 state.push({
@@ -37,7 +40,8 @@ export const wordsReducer = (state, action) => {
 
         // Remove words
         case types.RemoveWords:
-            return state.splice(0, action.payload);
+            state.splice(0, action.payload)
+            return state
 
         default:
             return state;    

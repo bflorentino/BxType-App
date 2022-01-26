@@ -1,22 +1,19 @@
 import React, { useReducer, useState } from 'react';
 import { useCounter } from '../Hooks/useCounter';
 import { countersContext, typingContext } from '../Typing/TypingContext';
-import { countersReducer, wordsReducer } from '../Typing/TypingReducer';
+import { wordsReducer } from '../Typing/TypingReducer';
 import BeginForm from './BeginForm';
 import Footer from './Footer';
 import Header from './Header';
 import TestResults from './TestResults';
 import TypeTest from './TypeTest';
 
-const init = () => []
-
 const TypingApp = () => {
 
   const [ currentMode, setCurrentMode ] = useState("start")
   const [ testSettings, setTestSettings ] = useState({})
   const [ currentWord, setCurrentWord ] = useState("");
-  const [ words ,dispatch ] = useReducer( wordsReducer, [], init );
-  // const [counters, countersDispatch]  = useReducer(countersReducer, {}, init )
+  const [ words ,dispatch ] = useReducer( wordsReducer, []);
 
   return(
     <>
@@ -30,8 +27,6 @@ const TypingApp = () => {
             dispatch,
             testSettings,
             setTestSettings,
-            // counters,
-            // countersDispatch
           }
         }>
 
@@ -40,13 +35,15 @@ const TypingApp = () => {
         <countersContext.Provider 
           value={
             {
-              counterWords : useCounter(0),
-              counterCorrect : useCounter(0),
-              counterIncorrect : useCounter(0),
-              counterKeyPress : useCounter(0),
+              counterWords         : useCounter(0),
+              counterCorrect       : useCounter(0),
+              counterIncorrect     : useCounter(0),
+              counterKeyPress      : useCounter(0),
+              counterCorrectChars  : useCounter(0),
+              counterIncorrectChars: useCounter(0),
+              counterRowWords      : useCounter(0),
               currentWord,
               setCurrentWord,
-              counterCurrentWordIndex : useCounter(0)
             }
         }>
           

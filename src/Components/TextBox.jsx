@@ -1,20 +1,32 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import { types } from '../Typing/Types';
 import { countersContext, typingContext } from '../Typing/TypingContext';
 import Word from './Word';
 
 const TextBox = ( ) => {
 
-    const { words } = useContext(typingContext)
-    const { counterWords, setCurrentWord } = useContext(countersContext)
+    const { words, dispatch } = useContext(typingContext)
+    const { counterRowWords, setCurrentWord } = useContext(countersContext)
+    const currentYPosition = useRef(213);
   
     useEffect(()=>{
-        if(counterWords.counter > 0){
-            document.getElementById(words[counterWords.counter - 1].id).classList.remove("current")
+        if(counterRowWords.counter > 0){
+            document.getElementById(words[counterRowWords.counter - 1].id).classList.remove("current")
         }else{
-            setCurrentWord(words[counterWords.counter].word)
+            setCurrentWord(words[counterRowWords.counter].word)
         }
-        document.getElementById(words[counterWords.counter].id).classList.add("current")
-    }, [counterWords.counter, words, setCurrentWord])
+        document.getElementById(words[counterRowWords.counter].id).classList.add("current")
+
+        if(document.getElementById(words[counterRowWords.counter].id).offsetTop > currentYPosition.current){
+            counterRowWords.reset(0);
+            dispatch({
+                type: types.RemoveWords,
+                payload:counterRowWords.counter
+            })
+        } 
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [counterRowWords.counter])
 
   return(
        <div className='border-4 border-borderColor h-40 overflow-hidden flex flex-wrap'>
