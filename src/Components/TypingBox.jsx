@@ -14,10 +14,9 @@ const TypingBox = () => {
   const { words } = useContext(typingContext)
 
   // Necessary counters for typing test 
-  const { counterWords,
+  const { 
           counterCorrect, 
           counterIncorrect, 
-          counterKeyPress,
           currentWord, 
           setCurrentWord,
           counterCorrectChars,
@@ -45,7 +44,6 @@ const TypingBox = () => {
           document.getElementById(words[counterRowWords.counter].id).classList.add("incorrect")
         }
 
-        counterWords.increment()
         counterRowWords.increment()
         reset() // Reset form input value every time a word is typed
         setCurrentWord(words[counterRowWords.counter + 1].word)
@@ -72,7 +70,6 @@ const TypingBox = () => {
           counterCorrectChars.increment();
         }
       }
-      counterKeyPress.increment() // Counting all pressed chars
     }else{
       setStarted(true);
     }

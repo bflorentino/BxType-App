@@ -3,7 +3,7 @@ import { types } from '../Typing/Types';
 import { countersContext, typingContext } from '../Typing/TypingContext';
 import Word from './Word';
 
-const TextBox = ( ) => {
+const TextBox = () => {
 
     const { words, dispatch } = useContext(typingContext)
     const { counterRowWords, setCurrentWord } = useContext(countersContext)
