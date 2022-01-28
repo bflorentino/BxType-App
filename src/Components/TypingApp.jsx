@@ -27,6 +27,7 @@ const TypingApp = () => {
             dispatch,
             testSettings,
             setTestSettings,
+            setCurrentMode
           }
         }>
 
@@ -35,10 +36,8 @@ const TypingApp = () => {
         <countersContext.Provider 
           value={
             {
-              counterWords         : useCounter(0),
               counterCorrect       : useCounter(0),
               counterIncorrect     : useCounter(0),
-              counterKeyPress      : useCounter(0),
               counterCorrectChars  : useCounter(0),
               counterIncorrectChars: useCounter(0),
               counterRowWords      : useCounter(0),

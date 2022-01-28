@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
-import { countersContext } from '../Typing/TypingContext';
+import { countersContext, typingContext } from '../Typing/TypingContext';
 
 const TestResults = (  ) => {
+
+  const { testSettings } = useContext(typingContext);
+  const { testType } = testSettings;
 
   const { 
     counterCorrect, 
@@ -16,7 +19,7 @@ const TestResults = (  ) => {
          <div className='border-4 border-borderColor h-40 overflow-hidden flex flex-col'>
 
            <div className='text-center text-3xl mt-4'> 
-              <p>{ `${counterCorrectChars.counter / 5 } WPM` }</p> 
+              <p>{ `${Math.ceil(counterCorrectChars.counter / (testType * 5)) } WPM` }</p> 
               <p className='text-sm'> (Words Per Minute)</p>
               </div>
            

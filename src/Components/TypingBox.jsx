@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useForm } from '../Hooks/useForm';
 import { countersContext, typingContext } from '../Typing/TypingContext';
+import Timer from './Timer';
 
-const TypingBox = () => {
+const TypingBox = ( ) => {
 
   const { formValues, handleInputChanges, reset } = useForm({
     typedWord : ""
@@ -11,7 +12,7 @@ const TypingBox = () => {
   const countingPressed = useRef(0) // Reference to counting the pressed chars by every word typed
   const currentStringTyped = useRef("");
   const [ started, setStarted ] = useState(false);
-  const { words } = useContext(typingContext)
+  const { words, setCurrentMode } = useContext(typingContext)
 
   // Necessary counters for typing test 
   const { 
@@ -70,28 +71,40 @@ const TypingBox = () => {
           counterCorrectChars.increment();
         }
       }
-    }else{
-      setStarted(true);
     }
-    
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [formValues.typedWord])
-  
+
+  const handleKeyPressed = ( e ) => {
+    !started && setStarted(true)
+  }
+
+  const handleEnd = ( e ) => {
+
+    counterCorrect.reset(0)
+    counterIncorrect.reset(0) 
+    counterCorrectChars.reset(0)
+    counterIncorrectChars.reset(0)
+    counterRowWords.reset(0)
+    setCurrentMode("start");
+  }
   
   return (
     <div className='flex flex-row items-center w-full mt-4 bg-trasnp h-16 rouded'>
       <input 
         type="text"
         name='typedWord'
+        placeholder='Start Typing'
         value={ formValues.typedWord }
         onChange={ handleInputChanges }
+        onKeyPress={ handleKeyPressed }
         className='w-3/4 h-3/4 py-2 outline-none text-2xl font-lato ml-4 px-2 dark:text-white rounded'
       />
-      <div className='bg-time h-3/4 ml-3 rounded'>
-        <p className='text-white font-lato text-lg py-2 px-6'>1:00</p>
-      </div>
-      <button className='bg-btnColor h-3/4 px-3 text-white font-lato text-lg ml-4 rounded'>
-        Restart
+      <Timer started={started}/>
+      <button 
+          className='bg-btnColor h-3/4 px-3 text-white font-lato text-lg ml-4 rounded'
+          onClick={ handleEnd }>
+        Home
       </button>
     </div>
   ) 

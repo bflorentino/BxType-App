@@ -6,12 +6,11 @@ import { typingContext } from '../Typing/TypingContext';
 const BeginForm = ( { setCurrentMode } ) => {
 
     const { formValues,  handleInputChanges, } = useForm({
-        testType: "",
+        testType: 1,
         language: "English"
     })
 
     const { setTestSettings, dispatch } = useContext(typingContext);
-
 
     const handleStart = ( e ) => {
         e.preventDefault();
@@ -23,7 +22,7 @@ const BeginForm = ( { setCurrentMode } ) => {
         
         setTestSettings({
             testType : formValues.testType, 
-            language: formValues.language
+            language : formValues.language
         })
         
         setCurrentMode("inProcess")
@@ -48,9 +47,9 @@ const BeginForm = ( { setCurrentMode } ) => {
                 value={ formValues.testType }
                 onChange={ handleInputChanges }
             >
-                <option value='1 Minute Test' defaultValue={true}>1 Minute Test</option>
-                <option value="2 Minutes Test">2 Minutes Test</option>
-                <option value="3 Minutes Test">3 Minutes Test</option>
+                <option value = {1} defaultValue={true}>1 Minute Test</option>
+                <option value = {2} >2 Minutes Test</option>
+                <option value = {3} >3 Minutes Test</option>
             
             </select>
         </div>

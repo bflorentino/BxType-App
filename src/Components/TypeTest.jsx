@@ -6,8 +6,8 @@ const TypeTest = ( { setCurrentMode}) => {
 
     return(
         <div className='w-2/3 mt-28'>
-            <TextBox setCurrentMode={  setCurrentMode } />
-            <TypingBox  />
+            <TextBox  />
+            <TypingBox setCurrentMode={  setCurrentMode } />
         </div>
     ) 
 }
