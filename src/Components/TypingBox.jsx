@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useForm } from '../Hooks/useForm';
 import { countersContext, typingContext } from '../Typing/TypingContext';
+import HomeButton from './HomeButton';
 import Timer from './Timer';
 
 const TypingBox = ( ) => {
@@ -12,7 +13,7 @@ const TypingBox = ( ) => {
   const countingPressed = useRef(0) // Reference to counting the pressed chars by every word typed
   const currentStringTyped = useRef("");
   const [ started, setStarted ] = useState(false);
-  const { words, setCurrentMode, theme } = useContext(typingContext)
+  const { words, theme } = useContext(typingContext)
 
   // Necessary counters for typing test 
   const { 
@@ -23,7 +24,6 @@ const TypingBox = ( ) => {
           counterCorrectChars,
           counterIncorrectChars,
           counterRowWords } = useContext(countersContext)
-
 
   useEffect(() =>{
       // Typing logic every time the form input value changes
@@ -85,34 +85,21 @@ const TypingBox = ( ) => {
   const handleKeyPressed = ( e ) => {
     !started && setStarted(true)
   }
-
-  const handleEnd = ( e ) => {
-
-    counterCorrect.reset(0)
-    counterIncorrect.reset(0) 
-    counterCorrectChars.reset(0)
-    counterIncorrectChars.reset(0)
-    counterRowWords.reset(0)
-    setCurrentMode("start");
-  }
-  
+ 
   return (
     <div className='flex flex-row items-center w-full mt-4 bg-trasnp dark:bg-black-box h-16 rouded'>
       <input 
         type="text"
         name='typedWord'
         placeholder='Start Typing'
+        autoComplete='off'
         value={ formValues.typedWord }
         onChange={ handleInputChanges }
         onKeyPress={ handleKeyPressed }
         className='w-3/4 h-3/4 py-2 outline-none text-2xl font-lato ml-4 px-2 rounded'
       />
       <Timer started={started}/>
-      <button 
-          className='bg-btnColor h-3/4 px-3 text-white font-lato text-lg ml-4 rounded'
-          onClick={ handleEnd }>
-        Home
-      </button>
+     <HomeButton />
     </div>
   ) 
 };

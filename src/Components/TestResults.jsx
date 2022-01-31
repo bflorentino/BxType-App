@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { countersContext, typingContext } from '../Typing/TypingContext';
+import HomeButton from './HomeButton';
 
 const TestResults = (  ) => {
 
@@ -14,9 +15,9 @@ const TestResults = (  ) => {
 
   return(
 
-    <div className='w-2/3 mt-28 font-lato'>
+    <div className='w-2/3 mt-36 font-lato'>
 
-         <div className='border-4 border-borderColor h-40 overflow-hidden flex flex-col'>
+         <div className='border-4 border-borderColor h-48 flex flex-col'>
 
            <div className='text-center text-3xl mt-4 dark:text-white'> 
               <p>{ `${Math.ceil(counterCorrectChars.counter / (testType * 5)) } WPM` }</p> 
@@ -48,7 +49,11 @@ const TestResults = (  ) => {
              </span>
 
            </div>
+           <div className='h-14 flex justify-end mr-4 mt-4'>
+            <HomeButton />
+           </div>
         </div>
+
     </div>
   ) 
 };
