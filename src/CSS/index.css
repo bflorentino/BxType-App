@@ -17,7 +17,6 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* background-color: #141414; */
     overflow: auto;
 }
 
@@ -26,13 +25,17 @@ body{
 } 
 
 .correct{
-    color: #528000;
+    color: #3AB049;
 }
 
 .incorrect{
-    color: #D8351B;
+    color: #FE0000;
 }
 
-.current{
-    background: rgba(0,0,0,0.2);
+.current-ligth{
+    background: #B4B4B4;
+}
+
+.current-dark{
+    background: #454545;
 }

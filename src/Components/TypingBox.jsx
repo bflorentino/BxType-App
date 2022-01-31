@@ -12,7 +12,7 @@ const TypingBox = ( ) => {
   const countingPressed = useRef(0) // Reference to counting the pressed chars by every word typed
   const currentStringTyped = useRef("");
   const [ started, setStarted ] = useState(false);
-  const { words, setCurrentMode } = useContext(typingContext)
+  const { words, setCurrentMode, theme } = useContext(typingContext)
 
   // Necessary counters for typing test 
   const { 
@@ -37,14 +37,17 @@ const TypingBox = ( ) => {
         if(formValues.typedWord.trim() === currentWord){
           // Case the last typed word was typed correctly
           counterCorrect.increment()
+          document.getElementById(words[counterRowWords.counter].id).classList.remove("dark:text-white")
           document.getElementById(words[counterRowWords.counter].id).classList.add("correct")
+          
         }
         else{
           // Case the last typed word wasn't typed correctly
           counterIncorrect.increment()
+          document.getElementById(words[counterRowWords.counter].id).classList.remove("dark:text-white")
           document.getElementById(words[counterRowWords.counter].id).classList.add("incorrect")
         }
-
+        
         counterRowWords.increment()
         reset() // Reset form input value every time a word is typed
         setCurrentWord(words[counterRowWords.counter + 1].word)
@@ -60,14 +63,18 @@ const TypingBox = ( ) => {
         :countingPressed.current++
         
         currentStringTyped.current = formValues.typedWord.trim().length; //This set the current input value as the current string typed
-
+        
         if(formValues.typedWord.trim() !== currentWord.substring(0,countingPressed.current)){
           // In case the current string typed doesn't match with the current word to type it means the word is being typed incorrectly
+          document.getElementById(words[counterRowWords.counter].id).classList.remove("dark:text-white")
           document.getElementById(words[counterRowWords.counter].id).classList.add("incorrect")
           counterIncorrectChars.increment();
         }
-        else{
+        else{     
           document.getElementById(words[counterRowWords.counter].id).classList.remove("incorrect")
+          if(theme === 'dark'){
+            document.getElementById(words[counterRowWords.counter].id).classList.add("dark:text-white")
+          } 
           counterCorrectChars.increment();
         }
       }
@@ -90,7 +97,7 @@ const TypingBox = ( ) => {
   }
   
   return (
-    <div className='flex flex-row items-center w-full mt-4 bg-trasnp h-16 rouded'>
+    <div className='flex flex-row items-center w-full mt-4 bg-trasnp dark:bg-black-box h-16 rouded'>
       <input 
         type="text"
         name='typedWord'
@@ -98,7 +105,7 @@ const TypingBox = ( ) => {
         value={ formValues.typedWord }
         onChange={ handleInputChanges }
         onKeyPress={ handleKeyPressed }
-        className='w-3/4 h-3/4 py-2 outline-none text-2xl font-lato ml-4 px-2 dark:text-white rounded'
+        className='w-3/4 h-3/4 py-2 outline-none text-2xl font-lato ml-4 px-2 rounded'
       />
       <Timer started={started}/>
       <button 

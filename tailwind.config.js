@@ -16,6 +16,7 @@ module.exports = {
       'brown': '#2C1010',
       'trasnp' : 'rgba(0,0,0,0.2)',
       'time': '#3C4D5C',
+      'black-box': '#454545'
     },
     fontFamily:{
       'lato': ['"Lato"', 'sans-serif'],
