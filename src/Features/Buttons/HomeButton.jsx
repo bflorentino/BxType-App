@@ -6,7 +6,7 @@ const HomeButton = () => {
     const counters = useContext(countersContext)
     const { setCurrentMode } = useContext(typingContext)
 
-    const handleEnd = ( e ) => {
+    const handleEnd = () => {
 
         counters.counterCorrect.reset(0)
         counters.counterIncorrect.reset(0) 

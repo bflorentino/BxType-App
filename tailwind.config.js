@@ -1,6 +1,5 @@
 module.exports = {
   darkMode : 'class',
-  highlitedWord: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],

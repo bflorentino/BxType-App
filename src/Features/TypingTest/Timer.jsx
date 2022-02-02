@@ -34,6 +34,7 @@ const Timer = ( { started } ) => {
     
     useEffect(() => {
         
+        // Seconds counting in Tests
         started && handleTimer();
         
         if(seconds.counter === 0 && minutes.counter === 0){
