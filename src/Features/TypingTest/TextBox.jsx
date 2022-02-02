@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { types } from '../Typing/Types';
-import { countersContext, typingContext } from '../Typing/TypingContext';
+import { types } from '../../Typing/Types';
+import { countersContext, typingContext } from '../../Typing/TypingContext';
 import Word from './Word';
 
 const TextBox = () => {
@@ -30,7 +30,7 @@ const TextBox = () => {
     }, [counterRowWords.counter, theme])
 
   return(
-       <div className='border-4 border-borderColor h-40 overflow-hidden flex flex-wrap'>
+       <div className='border-4 border-borderColor h-32 overflow-hidden flex flex-wrap'>
            {
                words.map( word => ( 
                    <Word 

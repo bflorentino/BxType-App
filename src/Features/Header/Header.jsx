@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { typingContext } from '../Typing/TypingContext';
+import { typingContext } from '../../Typing/TypingContext';
 
 const Header = () => {
 

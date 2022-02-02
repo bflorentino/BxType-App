@@ -6,7 +6,7 @@ const Footer = () => {
         <a href="https://github.com/bflorentino/BxType-App.git" target='blank' className='flex justify-center'>
           <img 
             src='../assets/Images/ghicon.png'
-            className='h-10 w-10' 
+            className='h-8 w-8' 
             alt="github repository" 
           />
         </a>

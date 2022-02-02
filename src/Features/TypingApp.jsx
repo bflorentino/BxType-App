@@ -2,11 +2,11 @@ import React, { useReducer, useState, useEffect, useRef } from 'react';
 import { useCounter } from '../Hooks/useCounter';
 import { countersContext, typingContext } from '../Typing/TypingContext';
 import { wordsReducer } from '../Typing/TypingReducer';
-import BeginForm from './BeginForm';
-import Footer from './Footer';
-import Header from './Header';
-import TestResults from './TestResults';
-import TypeTest from './TypeTest';
+import BeginForm from './Start/BeginForm';
+import Header from './Header/Header';
+import TypeTest from './TypingTest/TypeTest';
+import TestResults from './TestResults/TestResults';
+import Footer from './Footer/Footer';
 
 const TypingApp = () => {
 

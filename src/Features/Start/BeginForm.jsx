@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { useForm } from '../Hooks/useForm';
-import { types } from '../Typing/Types';
-import { typingContext } from '../Typing/TypingContext';
+import { useForm } from '../../Hooks/useForm';
+import { types } from '../../Typing/Types';
+import { typingContext } from '../../Typing/TypingContext';
 
 const BeginForm = ( { setCurrentMode } ) => {
 

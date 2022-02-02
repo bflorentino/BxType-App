@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useCallback } from 'react';
-import { useCounter } from '../Hooks/useCounter';
-import { typingContext } from '../Typing/TypingContext';
+import { useCounter } from '../../Hooks/useCounter';
+import { typingContext } from '../../Typing/TypingContext';
 
 const Timer = ( { started } ) => {
   

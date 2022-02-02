@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { countersContext, typingContext } from '../Typing/TypingContext';
+import { countersContext, typingContext } from '../../Typing/TypingContext';
 
 const HomeButton = () => {
 

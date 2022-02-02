@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useForm } from '../Hooks/useForm';
-import { countersContext, typingContext } from '../Typing/TypingContext';
-import HomeButton from './HomeButton';
-import Timer from './Timer';
+import { useForm } from '../../Hooks/useForm';
+import { countersContext, typingContext } from '../../Typing/TypingContext';
+import HomeButton from '../Buttons/HomeButton';
+import Timer from '../TypingTest/Timer';
 
 const TypingBox = ( ) => {
 
