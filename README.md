@@ -49,6 +49,6 @@ For every test, 2000 words are ramdonly picked from a list of words. According t
 `npm start`
 
 
-
-
 ### Try the app and check how fast you can type!
+
+https://bxtype.netlify.app/
