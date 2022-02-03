@@ -11,7 +11,7 @@ export const wordsReducer = (state, action) => {
             state = []
             const allCharacters = 'abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVXWYZ';
 
-            for (let index = 0; index < 350; index++) {
+            for (let index = 0; index < 2000; index++) {
 
                 const allCharactersToArray = [...allCharacters];
                 const shuffleCharacters = []
@@ -36,6 +36,8 @@ export const wordsReducer = (state, action) => {
                     word
                 })
             }
+            console.log(eswords.length)
+            console.log(enwords.length)
             return state;
 
         // Remove words

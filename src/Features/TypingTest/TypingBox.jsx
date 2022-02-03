@@ -11,7 +11,7 @@ const TypingBox = ( ) => {
   }) 
   const countingPressed = useRef(0) // Reference to counting the pressed chars by every word typed
   const  lastPressedKeyCode = useRef(null) // Reference to last pressed key.
-  const [ started, setStarted ] = useState(false);
+  const [ isStarted, setIsStarted ] = useState(false);
   const { words, theme } = useContext(typingContext)
   const [ keyCode, setKeyCode ] = useState(0);
 
@@ -27,7 +27,7 @@ const TypingBox = ( ) => {
 
   useEffect(() =>{
       // Typing logic every time the form input value changes
-    if(started){
+    if(isStarted){
 
       const charPressed = formValues.typedWord[formValues.typedWord.length - 1]
 
@@ -79,7 +79,7 @@ const TypingBox = ( ) => {
   }, [formValues.typedWord])
 
   const handleKeyPressed = ( e ) => {
-    !started && setStarted(true)
+    !isStarted && setIsStarted(true)
     lastPressedKeyCode.current = keyCode;
     setKeyCode(e.keyCode)
   }
@@ -96,7 +96,7 @@ const TypingBox = ( ) => {
         onKeyDown = { handleKeyPressed }
         className='w-3/4 h-3/4 py-2 outline-none text-2xl font-lato ml-4 px-2 rounded'
       />
-      <Timer started={started}/>
+      <Timer isStarted={isStarted}/>
      <HomeButton />
     </div>
   ) 

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import { useCounter } from '../../Hooks/useCounter';
 import { typingContext } from '../../Typing/TypingContext';
 
-const Timer = ( { started } ) => {
+const Timer = ( { isStarted } ) => {
   
     const { testSettings, setCurrentMode } = useContext(typingContext);
     const { testType } = testSettings;
@@ -35,13 +35,13 @@ const Timer = ( { started } ) => {
     useEffect(() => {
         
         // Seconds counting in Tests
-        started && handleTimer();
+        isStarted && handleTimer();
         
         if(seconds.counter === 0 && minutes.counter === 0){
             setCurrentMode("finished")
         }
         
-    }, [ started, seconds.counter, minutes.counter, handleTimer, setCurrentMode ])
+    }, [ isStarted, seconds.counter, minutes.counter, handleTimer, setCurrentMode ])
     
 
     useEffect(() => {
