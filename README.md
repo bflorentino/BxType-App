@@ -44,6 +44,11 @@ Total typed chars is the sum between correct chars and incorrect chars.
 For every test, 2000 words are ramdonly picked from a list of words. According to the selected language words will be in spanish language or english language.
 
 
+### Do you want to run the app? You can use next command:
+
+`npm start`
+
+
+
 
 ### Try the app and check how fast you can type!
-
