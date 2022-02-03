@@ -24,7 +24,7 @@ This is an app in which you can take a test in order to see how fast you can typ
 
 ### How is typing speed measured?
 
-To measure your typing speed, it's applied the next formula:
+Typing Speed is measured in WPM (Words Per Minute). To measure your typing speed, it's applied the next formula:
 
 ```Total correct chars / (5 * Test time)``` 
 
