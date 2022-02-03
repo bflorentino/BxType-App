@@ -36,8 +36,6 @@ export const wordsReducer = (state, action) => {
                     word
                 })
             }
-            console.log(eswords.length)
-            console.log(enwords.length)
             return state;
 
         // Remove words
