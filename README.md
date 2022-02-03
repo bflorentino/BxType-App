@@ -5,6 +5,13 @@
 
 This is an app in which you can take a test in order to see how fast you can type. You can pick one type of test according to the time (1 minute, 2 minutes and 3 minutes).
 
+### Technologies used:
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+
+
 ### Features
 
 - Two languages for tests (English or Spanish)
@@ -36,10 +43,6 @@ Total typed chars is the sum between correct chars and incorrect chars.
 
 For every test, 2000 words are ramdonly picked from a list of words. According to the selected language words will be in spanish language or english language.
 
-## Technologies used:
-
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 
 ### Try the app and check how fast you can type!
